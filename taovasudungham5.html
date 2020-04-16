@@ -5,12 +5,27 @@
     <title>Bài 5</title>
 </head>
 <body>
+<p>Nhập tên ngôi sao của bạn:</p>
+<input id="univer" type="text">
+<button onclick="Show()">Search</button>
+<span id="result"></span>
 <script>
-    function star(Polaris, Aldebaran, Deneb, Vega, Altair, Dubhe, Regulus) {
-
+    let star = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"]
+    let constellation = ["UrsaMinor", "TaRuRus", "Cygnus", "Lyra", "Aquila", "UrsaMajor", "Leo"]
+    let result, index = -1;
+    function Show() {
+    let starr = document.getElementById("univer").value;
+    for (let i = 0; i < star.length; i ++) {
+        if (starr === star[i]) {
+            index = i;
+            break;
+        }
     }
-    function constellation(UrsaMinor, TaRuRus, Cygnus, Lyra, Aquila, UrsaMajor, Leo) {
-
+    if (index !== -1) {
+        document.getElementById("result").innerHTML = "ngôi sao: " + starr + "trong chòm sao:" + constellation[index];
+    } else  {
+        document.getElementById("result").innerHTML = "Ngôi sao không tồn tại"
+    }
     }
 </script>
 </body>
