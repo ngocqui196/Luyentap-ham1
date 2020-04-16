@@ -2,30 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Từ điển</title>
+    <title>Tạo và gọi hàm</title>
 </head>
 <body>
-<input id="txtValue">
-<button onclick="showContent()">Search</button>
-<span id="result"></span>
 <script>
-    let E = ["red", "green", "white", "black"];
-    let V = ["đỏ", "lục", "trắng", "đen"];
-    let result, index=-1;
-    function showContent() {
-        let input = document.getElementById("txtValue").value;
-        for (let i = 0; i < E.length; i++) {
-            if (input == E[i]) {
-                index = i;
-                break;
-            }
-        }
-        if (index != -1) {
-            result = document.getElementById("result").innerHTML = '<br><br>' + 'Dịch nghĩa: ' + V[index];
+    function processConfirm(answer) {
+        let result = "";
+        if (answer) {
+            result = "Excellent. We'll play a nice game of chess.";
         } else {
-            result = document.getElementById("result").innerHTML = '<br><br>' + 'Từ khóa ' + inputValue + ' không có trong từ điển'
+            result = "Maybe later then";
         }
+        return result;
     }
+    let confirmAnswer = confirm("Shall we play a game?");
+    let theAnswer = processConfirm(confirmAnswer);
+    alert(theAnswer);
+
 </script>
 </body>
 </html>
